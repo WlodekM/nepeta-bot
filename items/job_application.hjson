@@ -12,6 +12,6 @@
 			"job": "mcfaggots-cook",
 			"message": "congratulations, you are now a cook in the nearest McFggots, you can now work using `n!work` to earn money!"
 		}
-	},
+	}
 	// "purchaseable": null
 }

@@ -54,6 +54,7 @@ export enum Level {
 	Gender_Neutral_Skylark_two,
 	Doctor_Ragnarok,
 	Heir_Transparent,
+	God_Tier
 }
 
 const mongoClient = new mongod.MongoClient('mongodb://localhost:27017');
@@ -160,7 +161,13 @@ async function handleCommand(message: Message) {
 
 	await user.load();
 
-	command.run(message, args, users, user, items)
+	try {
+		command.run(message, args, users, user, items)
+	} catch (error) {
+		message.reply(`Error while running command.\n\`\`\`
+${error instanceof Error ? error.stack??error:error}
+\`\`\``)
+	}
 }
 
 client.on(Events.MessageCreate, async (message: Message) => {

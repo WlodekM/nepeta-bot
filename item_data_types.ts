@@ -24,6 +24,7 @@ export interface Item {
 	id: string
 	namespace: string
 	description: string
+	type: string
 	purchaseable?: Purchaseable,
 	usable?: Usable,
 	equipable?: Equipable,

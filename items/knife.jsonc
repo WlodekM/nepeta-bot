@@ -1,6 +1,7 @@
 {
 	"$schema": "../item.schema.json",
 	"id": "knife",
+	"type": "Weapon",
 	"description": "A knife.", // \nUse this item via `%use job_application`
 	"namespace": "nepeta",
 	// "usable": null

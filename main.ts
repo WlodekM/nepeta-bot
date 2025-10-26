@@ -54,7 +54,7 @@ export enum Level {
 	Gender_Neutral_Skylark_two,
 	Doctor_Ragnarok,
 	Heir_Transparent,
-	God_Tier
+	FAGGIEST_OF_THEM_ALL
 }
 
 const mongoClient = new mongod.MongoClient('mongodb://localhost:27017');

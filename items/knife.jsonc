@@ -1,0 +1,15 @@
+{
+	"$schema": "../item.schema.json",
+	"id": "knife",
+	"description": "A knife.", // \nUse this item via `%use job_application`
+	"namespace": "nepeta",
+	// "usable": null
+	// "purchaseable": null
+	"equipable": {
+		"durability": 15,
+		"slot": "weapon"
+	},
+	"purchaseable": {
+		"cost": 100
+	}
+}

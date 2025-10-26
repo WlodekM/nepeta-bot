@@ -1,0 +1,16 @@
+{
+	"$schema": "../item.schema.json",
+	"id": "job_application",
+	"description": "This is an application for a job at the nearest McFaggots.", // \nUse this item via `%use job_application`
+	"namespace": "nepeta",
+	"usable": {
+		"invoke": "default",
+		"one_time": true,
+		"script": "items/job_application.ts",
+		"parameters": {
+			"job": "mcfaggots-cook",
+			"message": "congratulations, you are now a cook in the nearest McFggots, you can now work using `n!work` to earn money!"
+		}
+	},
+	// "purchaseable": null
+}

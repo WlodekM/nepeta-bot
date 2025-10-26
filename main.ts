@@ -15,6 +15,7 @@ import User from './user.ts';
 import fs from 'node:fs';
 
 export enum Level {
+	Noob,
 	Greentike,
 	Juvesquirt,
 	Plucky_Tot,

@@ -9,6 +9,7 @@ export default {
 				.filter(item => item.purchaseable)
 				.map(item => `> **${item.id}** - ${item.description.replaceAll('\n', '\n> ')}
 > cost: ${item.purchaseable!.cost}`)
+				.join('\n')
 		}`);
 	}
 } as Command;

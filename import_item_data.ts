@@ -25,7 +25,7 @@ const validator = new schema.Ajv({
 	strict: true
 })
 
-const parsers: Record<string, {parse: (text: string) => any}> = {
+const parsers: Record<string, {parse: (text: string) => object}> = {
 	hjson,
 	json: JSON,
 	jsonc
@@ -46,7 +46,7 @@ function scan_dir(dir_path: string) {
 
 		const contents = fs.readFileSync(path.join(dir_path, name)).toString();
 		const item: Item & {$schema?: string} = parsers[name.split('.').at(-1)!]
-			.parse(contents);
+			.parse(contents) as Item;
 
 		if (item.$schema)
 			delete item.$schema

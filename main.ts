@@ -147,42 +147,9 @@ globalThis.commands = commands;
 //@ts-ignore:
 globalThis.coll = users
 
-async function handleCommand(message: Message) {
-	const content = message.content.replace(/^n!/, '');
-	const [commandName, ...args] = content.split(' ')
-
-	const command = Object.values(commands)
-		.find(c => c.command == commandName
-			|| (c.aliases && c.aliases.includes(commandName)));
-
-	if (!command)
-		return message.reply(quirkify(`unknown command \`${commandName}\``));
-
-	const user = new User(message.author.id.toString());
-
-	await user.load();
-
-	try {
-		command.run(message, args, users, user, items)
-	} catch (error) {
-		message.reply(`Error while running command.\n\`\`\`
-${error instanceof Error ? error.stack??error:error}
-\`\`\``)
-	}
-}
-
-client.on(Events.MessageCreate, async (message: Message) => {
-	const channel = message.guild?.channels.cache
-		.find(c => c.id == message.channelId);
-	console.log(`#${channel?.name ?? '<unknown>'}`, message.content)
-
-	if (message.content.startsWith('n!'))
-		await handleCommand(message)
-})
-
 for (const name of fs.readdirSync('modules').filter(p => p.endsWith('.ts'))) {
 	const { default: mount } = await import(`./modules/${name}`);
-	await mount(client)
+	await mount(client, users, items)
 }
 
 client.login(token)

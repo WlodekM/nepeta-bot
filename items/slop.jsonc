@@ -1,0 +1,20 @@
+{
+	"$schema": "../item.schema.json",
+	"id": "knife",
+	"type": "Food",
+	"description": "Slop - The \"food\" they gave you at the school diner.",
+	"namespace": "nepeta",
+	"usable": {
+		"invoke": "default",
+		"one_time": true,
+		"parameters": {
+			"message": "You ate some slop.",
+			"hp": 2
+		},
+		"script": "items/consumable.ts"
+	},
+	// "purchaseable": null
+	"purchaseable": {
+		"cost": 15
+	}
+}

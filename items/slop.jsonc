@@ -1,6 +1,6 @@
 {
 	"$schema": "../item.schema.json",
-	"id": "knife",
+	"id": "slop",
 	"type": "Food",
 	"description": "Slop - The \"food\" they gave you at the school diner.",
 	"namespace": "nepeta",

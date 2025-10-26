@@ -114,14 +114,15 @@ for (const file of commandFiles) {
 function quirkify(text: string) {
 	const replacers: Record<string,string> = {
 		per: 'purr',
-		po: 'paw',
+		'po[^o]': 'paw',
+		'po$': 'paw',
 		hello: 'hewwo',
 		//TODO: read up on nepeta's puns
 	};
 
 	const pattern = new RegExp(
 	Object.keys(replacers)
-		.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+		// .map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
 			.join("|"),
 		"g"
 	);

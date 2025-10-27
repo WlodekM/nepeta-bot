@@ -1,4 +1,4 @@
-import { Command } from "../main.ts";
+import { type Command } from "../modules/commands.ts";
 
 const sallarries: Record<string, number> = {
 	'mcfaggots-cook': 20

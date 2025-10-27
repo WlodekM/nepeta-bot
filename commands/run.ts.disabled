@@ -1,4 +1,4 @@
-import { type Command } from "../main.ts";
+import { type Command } from "../modules/commands.ts";
 
 export default {
 	command: 'run',

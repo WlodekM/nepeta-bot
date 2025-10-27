@@ -1,4 +1,23 @@
-import { Level, NepetaUser } from "./main.ts";
+import { Level } from "./main.ts";
+
+export interface NepetaUser {
+	id: string,
+	inventory: Record<string, number>
+	money: number,
+	health: number,
+	flags: string[],
+	level: {
+		xp: number,
+		xp_to_next: number,
+		level: Level
+	},
+	storage: {
+		job?: string,
+		work_cooldown?: number,
+	},
+	state: string,
+	location: string,
+}
 
 export default class User {
 	id: string;

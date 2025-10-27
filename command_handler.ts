@@ -2,7 +2,7 @@ import {
 	type Message
 } from 'discord.js';
 import type mongod from 'mongodb';
-import type { NepetaUser } from './main.ts';
+import type { NepetaUser } from './user.ts';
 import type { Item } from './item_data_types.ts';
 import User from './user.ts';
 

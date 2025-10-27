@@ -1,5 +1,5 @@
 import { Message } from "discord.js";
-import { Command } from "../main.ts";
+import { type Command } from "../modules/commands.ts";
 
 export default {
 	command: 'help',

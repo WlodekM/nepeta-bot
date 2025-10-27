@@ -1,6 +1,6 @@
 import { type Client } from "discord.js";
 import type mongod from 'mongodb';
-import type { NepetaUser } from '../main.ts';
+import type { NepetaUser } from '../user.ts';
 
 // deno-lint-ignore no-explicit-any
 const ADD: Record<string, any> = {

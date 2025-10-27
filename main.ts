@@ -1,8 +1,8 @@
 import {
 	Client,
 	Events,
-	GatewayIntentBits,
-	type Message//, type GuildEmoji,
+	GatewayIntentBits
+	//, type GuildEmoji,
 	// type MessageReaction,
 	// // type MessageReactionEventDetails,
 	// type PartialUser,
@@ -11,7 +11,8 @@ import {
 import mongod, { Collection } from 'mongodb';
 // import hjson from 'hjson';
 import items from './import_item_data.ts'
-import User from './user.ts';
+import { NepetaUser } from './user.ts';
+import type { Command } from './modules/commands.ts'
 import fs from 'node:fs';
 
 export enum Level {
@@ -60,24 +61,6 @@ export enum Level {
 
 const mongoClient = new mongod.MongoClient('mongodb://localhost:27017');
 const db = mongoClient.db('nepeta')
-export interface NepetaUser {
-	id: string,
-	inventory: Record<string, number>
-	money: number,
-	health: number,
-	flags: string[],
-	level: {
-		xp: number,
-		xp_to_next: number,
-		level: Level
-	},
-	storage: {
-		job?: string,
-		work_cooldown?: number,
-	},
-	state: string,
-	location: string,
-}
 const users: mongod.Collection<NepetaUser> = db.collection('users_war')
 
 const token = Deno.readTextFileSync('token').replace(/\n$/,'');
@@ -94,24 +77,6 @@ const client = new Client({
 client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
-
-export interface Command {
-	command: string,
-	aliases?: string[],
-	run: ((message: Message, args: string[], users: mongod.Collection<NepetaUser>, user: User, _items: typeof items)
-			=> void) |
-		 ((message: Message, args: string[], users: mongod.Collection<NepetaUser>, user: User, _items: typeof items)
-		 	=> Promise<void>)
-}
-const commands: Record<string, Command> = {}
-const commandFiles = Deno.readDirSync('commands');
-
-for (const file of commandFiles) {
-	if (!file.name.match(/\.(ts|js)$/g))
-		continue;
-	const command: Command = (await import('./commands/'+file.name)).default;
-	commands[file.name] = command
-}
 
 function quirkify(text: string) {
 	const replacers: Record<string,string> = {
@@ -145,8 +110,6 @@ declare global {
 //@ts-ignore:
 // globalThis.terezify = quirkify;
 globalThis.quirkify = quirkify;
-//@ts-ignore:
-globalThis.commands = commands;
 //@ts-ignore:
 globalThis.coll = users
 

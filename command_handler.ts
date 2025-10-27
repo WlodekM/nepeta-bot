@@ -22,8 +22,10 @@ export default async function handle_command(
 		return message.reply(quirkify(`unknown command \`${commandName}\``));
 
 	const user = new User(message.author.id.toString());
-
 	await user.load();
+
+	if ( ("state" in command) && !command.state?.includes(user.data.state) )
+		return;
 
 	try {
 		command.run(message, args, users, user, items)

@@ -9,6 +9,7 @@ import User from "../user.ts";
 export interface Command {
 	command: string,
 	aliases?: string[],
+	state?: string[],
 	run: ((message: Message, args: string[], users: mongod.Collection<NepetaUser>, user: User, _items: Record<string, Item>)
 			=> void) |
 		((message: Message, args: string[], users: mongod.Collection<NepetaUser>, user: User, _items: Record<string, Item>)

@@ -7,6 +7,7 @@ const sallarries: Record<string, number> = {
 export default {
 	command: 'work',
 	aliases: [],
+	state: ['default'],
 	run: async function work(message, _args, _users, user, _items) {
 		if (!user.data.flags.includes('employed'))
 			return message.reply(`GO GET A JOB DUNPASS`);

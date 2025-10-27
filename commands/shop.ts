@@ -3,6 +3,7 @@ import { type Command } from "../modules/commands.ts";
 export default {
 	command: 'shop',
 	aliases: ['store'],
+	state: ['default'],
 	run: async function shop(message, _args, _users, _user, items) {
 		await message.reply(`shop:\n${
 			Object.values(items)

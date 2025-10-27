@@ -74,7 +74,9 @@ export interface NepetaUser {
 	storage: {
 		job?: string,
 		work_cooldown?: number,
-	}
+	},
+	state: string,
+	location: string,
 }
 const users: mongod.Collection<NepetaUser> = db.collection('users_war')
 

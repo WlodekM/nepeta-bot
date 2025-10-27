@@ -19,7 +19,9 @@ export default class User {
 			inventory: {
 				'nepeta:job_application': 1
 			},
-			storage: {}
+			storage: {},
+			state: "default",
+			location: 'gayplaza'
 		}
 		this.dev = id == '1050350077551587338'
 	}

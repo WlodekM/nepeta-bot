@@ -1,0 +1,14 @@
+{
+	"name": "gay plaza",
+	"description": "the beginning of your journey",
+	"shop": null,
+	"child_locations": [
+		"trading_place"
+	],
+	"neighbor_locations": [
+		"the_mines",
+		"the_market",
+		"main_st"
+		// uh uhhhmmm
+	]
+}

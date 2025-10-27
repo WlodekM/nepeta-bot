@@ -1,0 +1,7 @@
+{
+	"name": "trading place",
+	"description": "trade with other players using n!trade.. IF IT WERE IMPLEMENTED",
+	"shop": null,
+	"child_locations": null,
+	"parent_location": "gay_plaza"
+}
